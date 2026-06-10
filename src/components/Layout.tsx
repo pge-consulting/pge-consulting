@@ -162,7 +162,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <span className="font-bold text-xl">PGE Consulting</span>
               </div>
               <p className="text-muted-foreground font-semibold mb-4 max-w-md">
-                Delivering Industrial Projects. On Schedule. On Budget. Safely.
+                Delivering Industrial Projects. Safely. Start To Finish.
               </p>
               <div className="space-y-2 text-sm">
                 <p className="font-mono">

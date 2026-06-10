@@ -48,7 +48,7 @@ export default function About() {
                 About PGE Consulting
               </h1>
               <p className="text-xl md:text-2xl text-background/80 font-mono">
-                Delivering Industrial Projects. On Schedule. On Budget. Safely.
+                Delivering Industrial Projects. Safely. Start To Finish.
               </p>
             </motion.div>
           </div>

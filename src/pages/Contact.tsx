@@ -279,7 +279,7 @@ export default function Contact() {
         <section className="bg-foreground text-background py-16">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-4">
-              Delivering Industrial Projects. On Schedule. On Budget. Safely.
+              Delivering Industrial Projects. Safely. Start To Finish.
             </h2>
             <p className="text-lg text-background/80 mb-8 max-w-2xl mx-auto">
               Ready to discuss your project in detail? Schedule a free 30-minute consultation.
