@@ -136,7 +136,7 @@ export function Layout({
                 </div>
                 <span className="font-bold text-xl">PGE Consulting</span>
               </div>
-              <p className="text-muted-foreground font-semibold mb-4 max-w-md">Delivering Industrial Projects. Safely.</p>
+              <p className="text-muted-foreground font-semibold mb-4 max-w-md">Delivering Industrial Projects. Safely. Start To Finish</p>
               <div className="space-y-2 text-sm">
                 <p className="font-mono">
                   <span className="text-muted-foreground">Email:</span>{' '}
