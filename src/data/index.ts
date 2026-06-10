@@ -84,7 +84,7 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const COMPANY_STATS: CompanyStat[] = [
   { value: '20+', label: 'Years Experience' },
-  { value: '50+', label: 'Projects Delivered' },
+  { value: '30+', label: 'Projects Delivered' },
   { value: '5', label: 'Industries Served' },
 ];
 

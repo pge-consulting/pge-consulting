@@ -5,15 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ROUTE_PATHS } from '@/lib/index';
 import { NAV_ITEMS, CONTACT_INFO } from '@/data/index';
-export function Layout({
-  children
-}: {
-  children: React.ReactNode;
-}) {
+
+export function Layout({ children }: { children: React.ReactNode }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const [headerHeight, setHeaderHeight] = useState(0);
+
   useEffect(() => {
     const updateHeight = () => {
       if (headerRef.current) {
@@ -21,20 +19,25 @@ export function Layout({
         setHeaderHeight(height);
       }
     };
+
     updateHeight();
     const resizeObserver = new ResizeObserver(updateHeight);
     if (headerRef.current) {
       resizeObserver.observe(headerRef.current);
     }
+
     return () => resizeObserver.disconnect();
   }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -45,8 +48,15 @@ export function Layout({
       document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
-  return <div className="min-h-screen flex flex-col">
-      <header ref={headerRef} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <header
+        ref={headerRef}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+          isScrolled ? 'bg-background/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        }`}
+      >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <Link to={ROUTE_PATHS.HOME} className="flex items-center gap-3 group">
@@ -60,11 +70,19 @@ export function Layout({
             </Link>
 
             <nav className="hidden lg:flex items-center gap-8">
-              {NAV_ITEMS.map(item => <NavLink key={item.path} to={item.path} className={({
-              isActive
-            }) => `text-sm font-medium transition-colors hover:text-primary ${isActive ? 'text-primary' : 'text-foreground'}`}>
+              {NAV_ITEMS.map((item) => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `text-sm font-medium transition-colors hover:text-primary ${
+                      isActive ? 'text-primary' : 'text-foreground'
+                    }`
+                  }
+                >
                   {item.label}
-                </NavLink>)}
+                </NavLink>
+              ))}
             </nav>
 
             <div className="hidden lg:block">
@@ -73,7 +91,11 @@ export function Layout({
               </Button>
             </div>
 
-            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors" aria-label="Toggle menu">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+              aria-label="Toggle menu"
+            >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -81,33 +103,37 @@ export function Layout({
       </header>
 
       <AnimatePresence>
-        {isMobileMenuOpen && <motion.div initial={{
-        opacity: 0
-      }} animate={{
-        opacity: 1
-      }} exit={{
-        opacity: 0
-      }} transition={{
-        duration: 0.2
-      }} className="fixed inset-0 z-40 lg:hidden">
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-40 lg:hidden"
+          >
             <div className="absolute inset-0 bg-background/95 backdrop-blur-sm" />
-            <motion.nav initial={{
-          x: '100%'
-        }} animate={{
-          x: 0
-        }} exit={{
-          x: '100%'
-        }} transition={{
-          type: 'spring',
-          damping: 30,
-          stiffness: 300
-        }} className="absolute top-20 right-0 bottom-0 w-full max-w-sm bg-card border-l border-border shadow-xl overflow-y-auto">
+            <motion.nav
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="absolute top-20 right-0 bottom-0 w-full max-w-sm bg-card border-l border-border shadow-xl overflow-y-auto"
+            >
               <div className="flex flex-col p-6 gap-6">
-                {NAV_ITEMS.map(item => <NavLink key={item.path} to={item.path} onClick={() => setIsMobileMenuOpen(false)} className={({
-              isActive
-            }) => `text-lg font-semibold transition-colors hover:text-primary py-2 ${isActive ? 'text-primary' : 'text-foreground'}`}>
+                {NAV_ITEMS.map((item) => (
+                  <NavLink
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `text-lg font-semibold transition-colors hover:text-primary py-2 ${
+                        isActive ? 'text-primary' : 'text-foreground'
+                      }`
+                    }
+                  >
                     {item.label}
-                  </NavLink>)}
+                  </NavLink>
+                ))}
                 <div className="pt-4 border-t border-border">
                   <Button asChild size="lg" className="w-full font-semibold">
                     <Link to={ROUTE_PATHS.APPOINTMENTS} onClick={() => setIsMobileMenuOpen(false)}>
@@ -117,12 +143,11 @@ export function Layout({
                 </div>
               </div>
             </motion.nav>
-          </motion.div>}
+          </motion.div>
+        )}
       </AnimatePresence>
 
-      <main style={{
-      paddingTop: `${headerHeight}px`
-    }} className="flex-1">
+      <main style={{ paddingTop: `${headerHeight}px` }} className="flex-1">
         {children}
       </main>
 
@@ -136,7 +161,9 @@ export function Layout({
                 </div>
                 <span className="font-bold text-xl">PGE Consulting</span>
               </div>
-              <p className="text-muted-foreground font-semibold mb-4 max-w-md">Delivering Industrial Projects. Safely. Start To Finish</p>
+              <p className="text-muted-foreground font-semibold mb-4 max-w-md">
+                Delivering Industrial Projects. On Schedule. On Budget. Safely.
+              </p>
               <div className="space-y-2 text-sm">
                 <p className="font-mono">
                   <span className="text-muted-foreground">Email:</span>{' '}
@@ -159,10 +186,19 @@ export function Layout({
             <div>
               <h3 className="font-semibold text-lg mb-4">Navigation</h3>
               <nav className="flex flex-col gap-2">
-                {NAV_ITEMS.map(item => <Link key={item.path} to={item.path} className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                {NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  >
                     {item.label}
-                  </Link>)}
-                <Link to={ROUTE_PATHS.APPOINTMENTS} className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  </Link>
+                ))}
+                <Link
+                  to={ROUTE_PATHS.APPOINTMENTS}
+                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                >
                   Schedule a Call
                 </Link>
               </nav>
@@ -195,5 +231,6 @@ export function Layout({
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 }
