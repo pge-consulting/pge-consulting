@@ -179,7 +179,7 @@ export default function Appointments() {
                   <div className="flex flex-col md:flex-row gap-8 items-start">
                     <div className="flex-shrink-0">
                       <img
-                        src={IMAGES.TEAM_PORTRAIT_8}
+                        src="/images/Linkedin headshot.jpeg"
                         alt="Stacey Roberts"
                         className="w-32 h-32 rounded-full object-cover border-4 border-primary/20"
                       />

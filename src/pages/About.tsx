@@ -206,7 +206,7 @@ export default function About() {
               <div className="grid md:grid-cols-5 gap-8 bg-card p-8 rounded-lg border border-border">
                 <div className="md:col-span-2">
                   <img
-                    src={IMAGES.TEAM_PORTRAIT_7}
+                    src="/images/Linkedin headshot.jpeg"
                     alt="Stacey Roberts"
                     className="w-full h-auto rounded-lg shadow-lg"
                   />
@@ -222,13 +222,13 @@ export default function About() {
                   </div>
                   <div className="space-y-4 text-muted-foreground">
                     <p>
-                      Stacey brings over 20 years of hands-on industrial project execution experience across renewable energy, biomass, and heavy industrial sectors. She's not a desk consultant — she's a field leader who has commissioned RNG facilities, managed wood pellet plant startups, and recovered troubled projects with budgets exceeding $50M.
+                      Stacey brings over 20 years of hands-on industrial project execution experience across renewable energy, biomass, and heavy industrial sectors. He's not a desk consultant — he's a field leader who has commissioned RNG facilities, managed wood pellet plant startups, and recovered troubled projects with budgets exceeding $50M.
                     </p>
                     <p>
-                      Her expertise spans EPC oversight, commissioning leadership, process safety management, and technical due diligence for private equity investors. She holds an MBA and has led projects from initial feasibility through final performance testing.
+                      His expertise spans EPC oversight, commissioning leadership, process safety management, and technical due diligence for private equity investors. He holds an MBA and has led projects from initial feasibility through final performance testing.
                     </p>
                     <p>
-                      Stacey's approach is direct, technical, and results-focused. She tells clients what they need to hear, not what they want to hear. When you work with PGE Consulting, you're getting honest assessments, clear communication, and relentless execution until the job is done right.
+                      Stacey's approach is direct, technical, and results-focused. He tells clients what they need to hear, not what they want to hear. When you work with PGE Consulting, you're getting honest assessments, clear communication, and relentless execution until the job is done right.
                     </p>
                   </div>
                 </div>
