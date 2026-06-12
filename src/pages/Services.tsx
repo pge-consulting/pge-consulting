@@ -98,6 +98,26 @@ export default function Services() {
           </div>
         </section>
 
+        {/* Project Photo Gallery Strip */}
+        <section className="py-0 bg-foreground">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+            {[
+              { src: "/images/enviva.jpg", alt: "Enviva wood pellet facility" },
+              { src: "/images/enviva 2.jpg", alt: "Enviva conveyor system" },
+              { src: "/images/overland.jpg", alt: "Overland conveyor infrastructure" },
+              { src: "/images/Van Ess Farm 20230715.jpg", alt: "Van Ess Farm RNG facility" },
+            ].map((photo, i) => (
+              <div key={i} className="relative overflow-hidden h-56 md:h-72">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section className="py-24 bg-muted/30">
           <div className="container mx-auto px-4 max-w-7xl">
             <motion.div

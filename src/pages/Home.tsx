@@ -50,8 +50,8 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={IMAGES.HERO_BG_6}
-            alt="Industrial facility construction"
+            src="/images/Van Ess Farm upgrader 20230715.jpg"
+            alt="RNG upgrader facility"
             className="w-full h-full object-cover opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background/70" />
@@ -216,8 +216,8 @@ export default function Home() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src={IMAGES.HERO_BG_4}
-            alt="Industrial construction site"
+            src="/images/Roorda farm 20230715.jpg"
+            alt="Aerial view of anaerobic digester"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-foreground/90" />

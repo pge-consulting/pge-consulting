@@ -87,8 +87,8 @@ export default function About() {
                 className="relative"
               >
                 <img
-                  src={IMAGES.WOOD_PELLET_4}
-                  alt="Industrial facility"
+                  src="/images/dual belt dryer.jpg"
+                  alt="Dual belt dryer facility"
                   className="w-full h-[400px] object-cover rounded-lg shadow-lg"
                 />
               </motion.div>
