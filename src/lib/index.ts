@@ -2,6 +2,7 @@ export const ROUTE_PATHS = {
   HOME: '/',
   ABOUT: '/about',
   SERVICES: '/services',
+  GALLERY: '/gallery',
   CONTACT: '/contact',
   APPOINTMENTS: '/appointments',
 } as const;
