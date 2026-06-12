@@ -59,14 +59,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            <Link to={ROUTE_PATHS.HOME} className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-bold text-primary-foreground text-xl transition-transform group-hover:scale-105">
-                PGE
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-lg leading-tight">PGE Consulting</span>
-                <span className="text-xs text-muted-foreground font-mono">Industrial Execution</span>
-              </div>
+            <Link to={ROUTE_PATHS.HOME} className="flex items-center group">
+              <img
+                src="/images/pge_2026 Logo.png"
+                alt="Pine Grove Enterprises"
+                className="h-14 w-auto transition-opacity group-hover:opacity-90"
+              />
             </Link>
 
             <nav className="hidden lg:flex items-center gap-8">
@@ -155,11 +153,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="lg:col-span-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center font-bold text-primary-foreground text-xl">
-                  PGE
-                </div>
-                <span className="font-bold text-xl">PGE Consulting</span>
+              <div className="flex items-center mb-4">
+                <img
+                  src="/images/pge_2026 Logo.png"
+                  alt="Pine Grove Enterprises"
+                  className="h-16 w-auto"
+                />
               </div>
               <p className="text-muted-foreground font-semibold mb-4 max-w-md">
                 Delivering Industrial Projects. Safely. Start To Finish.
