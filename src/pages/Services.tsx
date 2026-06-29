@@ -33,17 +33,33 @@ export default function Services() {
         variants={fadeInUp}
         className="min-h-screen"
       >
-        <section className="relative bg-gradient-to-br from-foreground via-foreground/95 to-foreground/90 text-background py-24 md:py-32">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
+        <section className="relative py-20 md:py-28 overflow-hidden text-background">
+          {/* Background image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/images/posco.jpeg"
+              alt="Industrial facility"
+              className="w-full h-full object-cover opacity-25"
+            />
+            <div className="absolute inset-0 bg-foreground/80" />
+          </div>
+          <div className="relative z-10 container mx-auto px-4 max-w-4xl text-center">
+            <motion.p
+              variants={fadeInUp}
+              className="text-primary font-mono text-sm uppercase tracking-widest mb-4"
+            >
+              What We Do
+            </motion.p>
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4"
             >
               Our Services
             </motion.h1>
+            <div className="w-12 h-1 bg-primary mx-auto mb-6" />
             <motion.p
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-background/80 max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-background/80 max-w-3xl mx-auto font-medium"
             >
               Owner-side project execution and recovery for complex industrial
               facilities.
@@ -51,7 +67,7 @@ export default function Services() {
           </div>
         </section>
 
-        <section className="py-24 bg-background">
+        <section className="py-16 bg-background">
           <div className="container mx-auto px-4 max-w-7xl">
             <motion.div
               variants={staggerContainer}
@@ -60,12 +76,11 @@ export default function Services() {
               viewport={{ once: true, margin: "-100px" }}
               className="mb-16 text-center"
             >
-              <motion.h2
-                variants={staggerItem}
-                className="text-4xl md:text-5xl font-bold mb-6"
-              >
-                Core Services
-              </motion.h2>
+              <motion.div variants={staggerItem} className="flex flex-col items-center gap-2 mb-2">
+                <p className="text-primary font-mono text-sm uppercase tracking-widest">Full Lifecycle Execution</p>
+                <h2 className="text-4xl md:text-5xl font-bold">Core Services</h2>
+                <div className="w-12 h-1 bg-primary mt-2" />
+              </motion.div>
               <motion.p
                 variants={staggerItem}
                 className="text-lg text-muted-foreground max-w-3xl mx-auto"

@@ -59,8 +59,17 @@ export default function KnowledgeHub() {
       <div className="min-h-screen">
 
         {/* Hero */}
-        <section className="relative bg-foreground py-24 md:py-32">
-          <div className="container mx-auto px-4">
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          {/* Background image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/images/P6240057.jpg"
+              alt="Industrial project site"
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-foreground/85" />
+          </div>
+          <div className="relative z-10 container mx-auto px-4">
             <motion.div
               variants={staggerContainer}
               initial="hidden"
@@ -97,7 +106,7 @@ export default function KnowledgeHub() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="flex items-center gap-3 mb-16"
+              className="flex items-center gap-3 mb-12"
             >
               <BookOpen className="w-7 h-7 text-primary" />
               <h2 className="text-3xl md:text-4xl font-bold">Published Books</h2>

@@ -36,17 +36,28 @@ export default function About() {
   return (
     <Layout>
       <div className="min-h-screen">
-        <section className="relative bg-foreground py-24 md:py-32">
-          <div className="container mx-auto px-4">
+        <section className="relative py-24 md:py-32 overflow-hidden">
+          {/* Background image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/images/Kirkman Farm 20230715.jpg"
+              alt="Industrial project site"
+              className="w-full h-full object-cover opacity-25"
+            />
+            <div className="absolute inset-0 bg-foreground/80" />
+          </div>
+          <div className="relative z-10 container mx-auto px-4">
             <motion.div
               variants={fadeInUp}
               initial="hidden"
               animate="visible"
               className="max-w-3xl"
             >
+              <p className="text-primary font-mono text-sm uppercase tracking-widest mb-4">Pine Grove Enterprises</p>
               <h1 className="text-4xl md:text-6xl font-bold text-background mb-6">
                 About PGE Consulting
               </h1>
+              <div className="w-12 h-1 bg-primary mb-6" />
               <p className="text-xl md:text-2xl text-background/80 font-mono">
                 Delivering Industrial Projects. Safely. Start To Finish.
               </p>
@@ -54,7 +65,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-20">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -63,9 +74,10 @@ export default function About() {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  Who We Are
-                </h2>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-8 h-1 bg-primary" />
+                  <h2 className="text-3xl md:text-4xl font-bold">Who We Are</h2>
+                </div>
                 <div className="space-y-4 text-lg text-muted-foreground">
                   <p>
                     PGE Consulting is an industrial project execution firm with over 20 years of hands-on experience delivering complex facilities in renewable energy, biomass, and heavy industrial sectors.
@@ -96,7 +108,7 @@ export default function About() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-muted/30">
+        <section className="py-16 md:py-20 bg-muted/30">
           <div className="container mx-auto px-4">
             <motion.div
               variants={staggerContainer}
@@ -105,12 +117,11 @@ export default function About() {
               viewport={{ once: true }}
               className="max-w-4xl mx-auto"
             >
-              <motion.h2
-                variants={staggerItem}
-                className="text-3xl md:text-4xl font-bold mb-8 text-center"
-              >
-                What We Specialize In
-              </motion.h2>
+              <motion.div variants={staggerItem} className="flex flex-col items-center gap-2 mb-8">
+                <p className="text-primary font-mono text-sm uppercase tracking-widest">Expertise</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-center">What We Specialize In</h2>
+                <div className="w-12 h-1 bg-primary mt-2" />
+              </motion.div>
               <motion.ul
                 variants={staggerContainer}
                 className="grid md:grid-cols-2 gap-4"

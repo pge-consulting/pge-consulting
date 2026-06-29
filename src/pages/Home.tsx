@@ -109,7 +109,9 @@ export default function Home() {
             variants={fadeInUp}
             className="max-w-3xl mx-auto text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">What We Do</h2>
+            <p className="text-primary font-mono text-sm uppercase tracking-widest mb-3">Scope of Work</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-3">What We Do</h2>
+            <div className="w-12 h-1 bg-primary mx-auto mb-6" />
             <p className="text-lg text-muted-foreground mb-8">
               We execute complex industrial projects from the owner's side. No advisory fluff — just hands-on project leadership, contractor management, and field-driven problem solving.
             </p>
@@ -145,7 +147,9 @@ export default function Home() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Why PGE Consulting</h2>
+            <p className="text-primary font-mono text-sm uppercase tracking-widest mb-3">Our Difference</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-3">Why PGE Consulting</h2>
+            <div className="w-12 h-1 bg-primary mx-auto mb-6" />
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               We're different from typical consultants. Here's how.
             </p>
@@ -187,7 +191,9 @@ export default function Home() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Additional Services</h2>
+            <p className="text-primary font-mono text-sm uppercase tracking-widest mb-3">Advisory</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-3">Additional Services</h2>
+            <div className="w-12 h-1 bg-primary mx-auto mb-6" />
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Beyond core project execution, we provide specialized consulting services.
             </p>

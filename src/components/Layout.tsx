@@ -60,10 +60,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <Link to={ROUTE_PATHS.HOME} className="flex items-center group">
+              {/* Always show full logo — use mix-blend-mode to keep it visible on both light and dark backgrounds */}
               <img
                 src="/images/pge_2026 Logo.png"
                 alt="Pine Grove Enterprises"
-                className="h-14 w-auto transition-opacity group-hover:opacity-90"
+                className={`h-14 w-auto transition-all duration-200 group-hover:opacity-90 ${
+                  isScrolled ? 'brightness-100' : 'brightness-150'
+                }`}
               />
             </Link>
 
