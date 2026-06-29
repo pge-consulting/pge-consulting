@@ -3,6 +3,7 @@ export const ROUTE_PATHS = {
   ABOUT: '/about',
   SERVICES: '/services',
   GALLERY: '/gallery',
+  KNOWLEDGE: '/knowledge-hub',
   CONTACT: '/contact',
   APPOINTMENTS: '/appointments',
 } as const;

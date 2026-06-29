@@ -11,6 +11,7 @@ import Services from "@/pages/Services";
 import Contact from "@/pages/Contact";
 import Appointments from "@/pages/Appointments";
 import Gallery from "@/pages/Gallery";
+import KnowledgeHub from "@/pages/KnowledgeHub";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path={ROUTE_PATHS.SERVICES} element={<Services />} />
             <Route path={ROUTE_PATHS.CONTACT} element={<Contact />} />
             <Route path={ROUTE_PATHS.GALLERY} element={<Gallery />} />
+            <Route path={ROUTE_PATHS.KNOWLEDGE} element={<KnowledgeHub />} />
             <Route path={ROUTE_PATHS.APPOINTMENTS} element={<Appointments />} />
           </Routes>
         </HashRouter>

@@ -80,6 +80,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'About', path: ROUTE_PATHS.ABOUT },
   { label: 'Services', path: ROUTE_PATHS.SERVICES },
   { label: 'Gallery', path: ROUTE_PATHS.GALLERY },
+  { label: 'Knowledge Hub', path: ROUTE_PATHS.KNOWLEDGE },
   { label: 'Contact', path: ROUTE_PATHS.CONTACT },
 ];
 

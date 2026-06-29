@@ -2,6 +2,7 @@
 
 export const IMAGES = {
   BLACK_SOIL_FARM_20230715_30: "/images/Black Soil Farm 20230715.jpg",
+  BLUEPRINT_COVER_47: "/images/blueprint cover.jpg",
   DUAL_BELT_DRYER_28: "/images/dual belt dryer.jpg",
   ENVIVA_2_29: "/images/enviva 2.jpg",
   ENVIVA_45: "/images/enviva.jpg",
@@ -19,6 +20,7 @@ export const IMAGES = {
   IMGP5532_44: "/images/IMGP5532.jpg",
   IMG_005_34: "/images/005.jpg",
   IMG_20190814_132136_31: "/images/20190814_132136.jpg",
+  ITP_COVER_48: "/images/itp cover.jpg",
   KIRKMAN_FARM_20230715_41: "/images/Kirkman Farm 20230715.jpg",
   LINKEDIN_HEADSHOT_27: "/images/Linkedin headshot.jpeg",
   OVERLAND_42: "/images/overland.jpg",
