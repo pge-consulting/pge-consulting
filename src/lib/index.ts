@@ -6,6 +6,8 @@ export const ROUTE_PATHS = {
   KNOWLEDGE: '/knowledge-hub',
   CONTACT: '/contact',
   APPOINTMENTS: '/appointments',
+  PRIVACY: '/privacy',
+  TERMS: '/terms',
 } as const;
 
 export interface Service {

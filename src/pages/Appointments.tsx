@@ -9,7 +9,8 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { MessageSquare, Clock, Shield, CheckCircle2 } from "lucide-react";
+import { MessageSquare, Clock, Shield, CheckCircle2, AlertCircle } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -29,14 +30,20 @@ const bookingSchema = z.object({
 
 type BookingFormData = z.infer<typeof bookingSchema>;
 
+const SUPABASE_URL = 'https://aoccjukkftefxsrwfcjz.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_RfdXRuog2DAhM5dE1K1_sA_XenKxVwi';
+
 export default function Appointments() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
     watch,
+    reset,
   } = useForm<BookingFormData>({
     resolver: zodResolver(bookingSchema),
     defaultValues: {
@@ -47,9 +54,35 @@ export default function Appointments() {
   const projectType = watch("projectType");
   const contactMethod = watch("contactMethod");
 
-  const onSubmit = (data: BookingFormData) => {
-    console.log("Booking submitted:", data);
-    setIsSubmitted(true);
+  const onSubmit = async (data: BookingFormData) => {
+    setIsSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/send-appointment-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          company: data.company,
+          project_type: data.projectType,
+          preferred_date: null,
+          message: `Phone: ${data.phone}\nPreferred contact: ${data.contactMethod}\n\n${data.description}`,
+        }),
+      });
+      const responseText = await res.text();
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${responseText}`);
+      setIsSubmitted(true);
+      reset();
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setSubmitError(`Error: ${msg} — or email staceyr@pge-consulting.com directly`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const expectationCards = [
@@ -338,8 +371,15 @@ export default function Appointments() {
                       )}
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full">
-                      Submit Request
+                    {submitError && (
+                      <Alert className="border-destructive/50 bg-destructive/10">
+                        <AlertCircle className="h-4 w-4 text-destructive" />
+                        <AlertDescription className="text-foreground">{submitError}</AlertDescription>
+                      </Alert>
+                    )}
+
+                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? 'Submitting…' : 'Submit Request'}
                     </Button>
 
                     <p className="text-sm text-muted-foreground text-center">

@@ -12,6 +12,8 @@ import Contact from "@/pages/Contact";
 import Appointments from "@/pages/Appointments";
 import Gallery from "@/pages/Gallery";
 import KnowledgeHub from "@/pages/KnowledgeHub";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,8 @@ const App = () => (
             <Route path={ROUTE_PATHS.GALLERY} element={<Gallery />} />
             <Route path={ROUTE_PATHS.KNOWLEDGE} element={<KnowledgeHub />} />
             <Route path={ROUTE_PATHS.APPOINTMENTS} element={<Appointments />} />
+            <Route path={ROUTE_PATHS.PRIVACY} element={<Privacy />} />
+            <Route path={ROUTE_PATHS.TERMS} element={<Terms />} />
           </Routes>
         </HashRouter>
       </MotionConfig>

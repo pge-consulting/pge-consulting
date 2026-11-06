@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, AlertCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -27,8 +27,12 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+const SUPABASE_URL = 'https://aoccjukkftefxsrwfcjz.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_RfdXRuog2DAhM5dE1K1_sA_XenKxVwi';
+
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [projectType, setProjectType] = useState<string>('');
 
   const {
@@ -42,12 +46,31 @@ export default function Contact() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log('Form submitted:', data);
-    setIsSubmitted(true);
-    reset();
-    setProjectType('');
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setSubmitError(null);
+    try {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/send-contact-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({
+          name: data.fullName,
+          email: data.email,
+          company: data.companyName,
+          message: `Project Type: ${data.projectType}\nPhone: ${data.phone}\n\n${data.message}`,
+        }),
+      });
+      const responseText = await res.text();
+      if (!res.ok) throw new Error(`HTTP ${res.status}: ${responseText}`);
+      setIsSubmitted(true);
+      reset();
+      setProjectType('');
+      setTimeout(() => setIsSubmitted(false), 8000);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setSubmitError(`Error: ${msg} — or email staceyr@pge-consulting.com directly`);
+    }
   };
 
   return (
@@ -144,6 +167,13 @@ export default function Contact() {
                       <AlertDescription className="text-foreground">
                         Thank you for your message. We'll get back to you within 1 business day.
                       </AlertDescription>
+                    </Alert>
+                  )}
+
+                  {submitError && (
+                    <Alert className="mb-6 border-destructive/50 bg-destructive/10">
+                      <AlertCircle className="h-4 w-4 text-destructive" />
+                      <AlertDescription className="text-foreground">{submitError}</AlertDescription>
                     </Alert>
                   )}
 

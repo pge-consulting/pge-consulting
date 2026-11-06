@@ -228,8 +228,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
 
-          <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>© 2026 PGE Consulting. All rights reserved.</p>
+          <div className="border-t border-border mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+            <p>© 2026 PGE Consulting (Pine Grove Enterprises). All rights reserved.</p>
+            <div className="flex items-center gap-6">
+              <Link to={ROUTE_PATHS.PRIVACY} className="hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link to={ROUTE_PATHS.TERMS} className="hover:text-primary transition-colors">Terms of Service</Link>
+            </div>
           </div>
         </div>
       </footer>
