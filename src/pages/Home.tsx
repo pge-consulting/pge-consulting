@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Seo } from '@/components/Seo';
 import { Link } from "react-router-dom";
 import { Briefcase, Flame, Factory, Zap, AlertTriangle, FileSearch, Wrench, Shield, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -47,6 +48,7 @@ const whatWeDoItems = [
 export default function Home() {
   return (
     <Layout>
+      <Seo title="PGE Consulting | Industrial Project Execution & Advisory" description="Owner-side project execution for complex industrial facilities. RNG, anaerobic digestion, wood pellet manufacturing. 20+ years. 30+ projects delivered." path="/" />
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { Seo } from '@/components/Seo';
+import { Link } from 'react-router-dom';
+import { ROUTE_PATHS } from '@/lib/index';
 import { motion, AnimatePresence } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/motion";
@@ -140,6 +143,7 @@ export default function Gallery() {
 
   return (
     <Layout>
+      <Seo title="Project Gallery | PGE Consulting" description="Real industrial facilities delivered to clients — RNG, anaerobic digestion, wood pellet manufacturing, and heavy industrial projects." path="/gallery" />
       <div className="min-h-screen">
         {/* Hero */}
         <section className="relative bg-foreground py-24 md:py-32">
@@ -235,12 +239,12 @@ export default function Gallery() {
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
                 Every photo represents a real facility delivered safely and on schedule. Let's talk about yours.
               </p>
-              <a
-                href="#/appointments"
+              <Link
+                to={ROUTE_PATHS.APPOINTMENTS}
                 className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-md hover:bg-primary/90 transition-colors text-lg"
               >
                 Schedule a Free Consultation →
-              </a>
+              </Link>
             </motion.div>
           </div>
         </section>

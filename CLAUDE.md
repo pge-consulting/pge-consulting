@@ -20,7 +20,7 @@ Marketing and lead-capture website for PGE Consulting (Pine Grove Enterprises & 
 
 ## Tech Stack
 
-React 18 + TypeScript + Vite · Tailwind CSS + shadcn/ui · Framer Motion · React Hook Form + Zod · React Router **HashRouter** (all routes are `/#/path`) · Supabase (DB + edge functions) · Resend (email) · GA4 `G-MJM81DY0P0` · Cloudflare Pages hosting.
+React 18 + TypeScript + Vite · Tailwind CSS + shadcn/ui · Framer Motion · React Hook Form + Zod · React Router **BrowserRouter** (real paths like `/services`; legacy `/#/` URLs are redirected by a shim in `src/main.tsx`) · Supabase (DB + edge functions) · Resend (email) · GA4 `G-MJM81DY0P0` · Cloudflare Pages hosting.
 
 ## Deployment
 
@@ -50,7 +50,9 @@ curl -X POST "https://aoccjukkftefxsrwfcjz.supabase.co/functions/v1/send-contact
 ## Critical Implementation Rules
 
 1. **Form submissions use direct `fetch()`** to the edge function endpoints with the anon key as Bearer token — NOT `supabase.functions.invoke()`. See `src/pages/Contact.tsx` and `src/pages/Appointments.tsx` onSubmit handlers. Do not "refactor" these to the SDK.
-2. **All 9 routes must exist** in `ROUTE_PATHS` (`src/lib/index.ts`) and `App.tsx`: `/`, `/about`, `/services`, `/gallery`, `/knowledge-hub`, `/contact`, `/appointments`, `/privacy`, `/terms`. Privacy and Terms have historically been dropped — verify they're present before and after any routing change.
+2. **All 9 routes must exist** in `ROUTE_PATHS` (`src/lib/index.ts`) and `App.tsx`: `/`, `/about`, `/services`, `/gallery`, `/knowledge-hub`, `/contact`, `/appointments`, `/privacy`, `/terms`. Privacy and Terms have historically been dropped — verify they're present before and after any routing change. A new page needs four things: a `ROUTE_PATHS` entry, an `App.tsx` route, a `<Seo>` tag, and a `public/sitemap.xml` entry.
+2a. **`public/_redirects`** (`/* /index.html 200`) is required for BrowserRouter on Cloudflare Pages — never delete it. Canonical domain is apex `https://pge-consulting.com` (www redirects to it).
+2b. **Every page renders `<Seo>`** (`src/components/Seo.tsx`) just inside `<Layout>`, with a unique title, description, and path — this sets per-page title, meta description, canonical, and Open Graph tags.
 3. **Footer** (`src/components/Layout.tsx`) must link Privacy Policy and Terms of Service on every page. Copyright: © 2026 PGE Consulting (Pine Grove Enterprises).
 4. **index.html** must retain the GA4 script block (`G-MJM81DY0P0`) and the real meta title/description — never the "Skywork Generated Project" template.
 5. **`.env`** (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`) is gitignored — recreate from `.env.example` on any new machine. `src/integrations/supabase/client.ts` must exist.
@@ -70,10 +72,8 @@ After push: wait ~2 min, verify the change at pge-consulting.com (hard refresh),
 ## Backlog (from PRD v2.0)
 
 - Microsoft Edge SmartScreen review — Stacey submits at microsoft.com/en-us/wdsi/support/report-unsafe-site (domain reputation, not code)
-- Calendar integration for Appointments (Calendly embed or date picker)
-- Knowledge Hub real content · Case studies · Testimonials
-- SEO: robots.txt, sitemap.xml, JSON-LD structured data, per-page meta
-- Switch `npm run build` off `--mode development` (Skywork artifact) for a smaller production bundle
+- Knowledge Hub real content
+- Representative-work / track-record section (format TBD — Stacey dislikes narrative case studies)
 
 ## Reference
 

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Seo } from '@/components/Seo';
 import { Layout } from '@/components/Layout';
 import { fadeInUp } from '@/lib/motion';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,7 @@ import { ROUTE_PATHS } from '@/lib/index';
 export default function Terms() {
   return (
     <Layout>
+      <Seo title="Terms of Service | PGE Consulting" description="Terms governing use of the PGE Consulting website." path="/terms" />
       <div className="min-h-screen">
         <motion.section
           className="relative bg-gradient-to-b from-background via-muted/30 to-background py-24"

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Seo } from '@/components/Seo';
 import { Layout } from "@/components/Layout";
 import { ServiceCard, AdditionalServiceCard, ProcessCard } from "@/components/Cards";
 import { SERVICES, ADDITIONAL_SERVICES, PROCESS_STEPS } from "@/data/index";
@@ -27,6 +28,7 @@ const iconMap = {
 export default function Services() {
   return (
     <Layout>
+      <Seo title="Services | PGE Consulting" description="Owner's representation, EPC oversight, commissioning and startup, and project recovery for RNG, biogas, and heavy industrial facilities." path="/services" />
       <motion.div
         initial="hidden"
         animate="visible"

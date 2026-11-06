@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import { ROUTE_PATHS } from "@/lib/index";
 import Home from "@/pages/Home";
@@ -23,7 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <MotionConfig reducedMotion="user">
-        <HashRouter>
+        <BrowserRouter>
           <Routes>
             <Route path={ROUTE_PATHS.HOME} element={<Home />} />
             <Route path={ROUTE_PATHS.ABOUT} element={<About />} />
@@ -35,7 +35,7 @@ const App = () => (
             <Route path={ROUTE_PATHS.PRIVACY} element={<Privacy />} />
             <Route path={ROUTE_PATHS.TERMS} element={<Terms />} />
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </MotionConfig>
     </TooltipProvider>
   </QueryClientProvider>

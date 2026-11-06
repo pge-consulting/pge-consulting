@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Seo } from '@/components/Seo';
 import { Layout } from "@/components/Layout";
 import { ROUTE_PATHS } from "@/lib/index";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/motion";
@@ -35,6 +36,7 @@ export default function About() {
 
   return (
     <Layout>
+      <Seo title="About Stacey Roberts | PGE Consulting" description="Stacey Roberts, MBA — 20+ years delivering complex industrial and energy projects as an owner-side project executive, in partnership with IN3 Capital." path="/about" />
       <div className="min-h-screen">
         <section className="relative py-24 md:py-32 overflow-hidden">
           {/* Background image */}

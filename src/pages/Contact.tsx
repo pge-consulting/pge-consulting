@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Seo } from '@/components/Seo';
 import { Mail, Phone, MapPin, Clock, Send, AlertCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -75,6 +76,7 @@ export default function Contact() {
 
   return (
     <Layout>
+      <Seo title="Contact | PGE Consulting" description="Start a direct conversation about your industrial project. No sales pitch — a response within 1 business day." path="/contact" />
       <div className="min-h-screen">
         <motion.section
           className="relative bg-gradient-to-b from-background via-muted/30 to-background py-24"

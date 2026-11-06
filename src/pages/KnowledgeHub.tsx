@@ -1,4 +1,7 @@
 import { motion } from "framer-motion";
+import { Seo } from '@/components/Seo';
+import { Link } from 'react-router-dom';
+import { ROUTE_PATHS } from '@/lib/index';
 import { Layout } from "@/components/Layout";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/motion";
 import { BookOpen, ExternalLink, Clock, Wrench } from "lucide-react";
@@ -56,6 +59,7 @@ const tools = [
 export default function KnowledgeHub() {
   return (
     <Layout>
+      <Seo title="Knowledge Hub | PGE Consulting" description="Industry resources, publications, and tools for delivering complex industrial and energy projects." path="/knowledge-hub" />
       <div className="min-h-screen">
 
         {/* Hero */}
@@ -285,12 +289,12 @@ export default function KnowledgeHub() {
               <p className="text-background/70 text-lg mb-8 max-w-2xl mx-auto">
                 The same knowledge behind these publications is available directly — applied to your project, your site, and your schedule.
               </p>
-              <a
-                href="#/appointments"
+              <Link
+                to={ROUTE_PATHS.APPOINTMENTS}
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-semibold px-8 py-4 rounded-md hover:bg-primary/90 transition-colors text-lg"
               >
                 Schedule a Free Consultation →
-              </a>
+              </Link>
             </motion.div>
           </div>
         </section>

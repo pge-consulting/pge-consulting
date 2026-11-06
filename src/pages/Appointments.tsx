@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Seo } from '@/components/Seo';
 import { Layout } from "@/components/Layout";
 import { IMAGES } from "@/assets/images";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/motion";
@@ -129,6 +130,7 @@ export default function Appointments() {
 
   return (
     <Layout>
+      <Seo title="Schedule a Consultation | PGE Consulting" description="Book a free 30-minute consultation about your industrial project — straight talk, no obligation." path="/appointments" />
       <div className="relative w-full overflow-hidden bg-background">
         <section className="relative min-h-[60vh] flex items-center justify-center">
           <div className="absolute inset-0 z-0">
